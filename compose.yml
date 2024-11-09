@@ -1,9 +1,15 @@
 services:
 
-  todoapi:
+  shredder:
     image: brocker591/shredder
     container_name: shredder
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    networks:
-      - tinysoftware
+      - ConnectionStrings__Database=Data Source=Data/shredderDB
+    volumes:
+      - shredder_data:/app/Data
+    ports:
+      - 8888:80
+
+volumes:
+  shredder_data:
