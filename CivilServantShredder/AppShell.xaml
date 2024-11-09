@@ -6,9 +6,10 @@
     xmlns:local="clr-namespace:CivilServantShredder"
     Shell.FlyoutBehavior="Disabled"
     Title="CivilServantShredder">
+    
 
     <ShellContent
-        Title="Home"
+        Title="Willkommen in Ihrem Gemeindeportal!"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

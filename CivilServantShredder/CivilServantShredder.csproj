@@ -66,4 +66,20 @@
 	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Feed.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+<<<<<<< HEAD
+	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
+=======
+	  <MauiXaml Update="Feed.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+>>>>>>> refs/heads/main
+	</ItemGroup>
+
 </Project>
