@@ -6,4 +6,5 @@ public partial class New_BlogPost_TextOnly : ContentPage
 	{
 		InitializeComponent();
 	}
+
 }

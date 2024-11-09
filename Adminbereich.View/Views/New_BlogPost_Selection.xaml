@@ -10,18 +10,18 @@
             HorizontalOptions="Center" />
 
         <Button Text="Text Only" 
+                Margin="10, 0, 0, 0"
                 MaximumWidthRequest="200"
-                Margin="10 0 0 0"
                 Clicked="Button_Clicked_TextOnly"/>
 
         <Button Text="Text and Picture"
+                Margin="10, 0, 0, 0"
                 MaximumWidthRequest="200"
-                Margin="10 0 0 0"
                 Clicked="Button_Clicked_TextAndPicture"/>
 
         <Button Text="Poll"
+                Margin="10, 0, 0, 0"
                 MaximumWidthRequest="200"
-                Margin="10 0 0 0"
                 Clicked="Button_Clicked_Poll"/>
     </VerticalStackLayout>
 </ContentPage>
