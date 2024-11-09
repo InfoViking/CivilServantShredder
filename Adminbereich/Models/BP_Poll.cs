@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace Adminbereich.Models
 {
-    public class BP_Poll : IBlogPost
+    public class BP_Poll : BlogPost
     {
-        public BP_Poll()
-        {
-            
-        }
-        public Guid Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string HeadLine { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime CreationTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public BP_Poll(string headLine, Poll poll, DateTime? creationTime = null) : base(headLine, creationTime)
+        { _poll = poll; }
+
+        private Poll _poll;
+        private Poll Poll { get { return _poll; } }
     }
 }
