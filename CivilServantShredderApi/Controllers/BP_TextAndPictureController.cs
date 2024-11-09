@@ -55,7 +55,7 @@ public class BP_TextAndPictureController(ShredderDatabase datebase) : Controller
         if (existingModel == null)
             return NotFound();
 
-        datebase.Remove(existingModel);
+        datebase.BP_TextAndPictures.Remove(existingModel);
         await datebase.SaveChangesAsync();
         return NoContent();
     }

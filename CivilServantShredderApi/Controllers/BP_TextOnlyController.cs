@@ -54,7 +54,7 @@ public class BP_TextOnlyController(ShredderDatabase datebase) : ControllerBase
         if (existingModel == null)
             return NotFound();
 
-        datebase.Remove(existingModel);
+        datebase.BP_TextOnlys.Remove(existingModel);
         await datebase.SaveChangesAsync();
         return NoContent();
     }

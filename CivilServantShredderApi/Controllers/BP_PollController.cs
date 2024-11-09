@@ -56,7 +56,7 @@ public class BP_PollController(ShredderDatabase datebase) : ControllerBase
         if (existingModel == null)
             return NotFound();
 
-        datebase.Remove(existingModel);
+        datebase.BP_Polls.Remove(existingModel);
         await datebase.SaveChangesAsync();
         return NoContent();
     }
