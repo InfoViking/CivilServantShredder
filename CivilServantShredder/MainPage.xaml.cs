@@ -1,4 +1,6 @@
-﻿namespace CivilServantShredder
+﻿using Plugin.NFC;
+
+namespace CivilServantShredder
 {
     public partial class MainPage : ContentPage
     {
@@ -7,6 +9,7 @@
         public MainPage()
         {
             InitializeComponent();
+            CrossNFC.Current.OnMessageReceived += 
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
