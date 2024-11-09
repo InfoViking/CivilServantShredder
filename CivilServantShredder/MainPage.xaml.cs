@@ -12,16 +12,26 @@ namespace CivilServantShredder
             CrossNFC.Current.OnMessageReceived += 
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        public void ChangePasswordVisibility()
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (EntryPassword.IsPassword == true)
+            {
+                EntryPassword.IsPassword = false;
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
+            {
+                EntryPassword.IsPassword = true;
+            }
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void ShowPassword_Clicked(object sender, EventArgs e)
+        {
+            ChangePasswordVisibility();
+        }
+
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(Feed), true);
         }
     }
 
