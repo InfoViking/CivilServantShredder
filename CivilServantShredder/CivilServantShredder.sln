@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CivilServantShredder", "CivilServantShredder.csproj", "{82E0CA15-E503-47CE-A54D-DC040917AF7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adminbereich", "..\Adminbereich\Adminbereich.csproj", "{5582E0FB-8C48-438D-B69B-5F708C03AA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adminbereich", "..\Adminbereich\Adminbereich.csproj", "{5582E0FB-8C48-438D-B69B-5F708C03AA47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CivilServantShredderApi", "..\CivilServantShredderApi\CivilServantShredderApi.csproj", "{5A3BCB01-8842-40DF-A57D-C0162CBC0492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{5582E0FB-8C48-438D-B69B-5F708C03AA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5582E0FB-8C48-438D-B69B-5F708C03AA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5582E0FB-8C48-438D-B69B-5F708C03AA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A3BCB01-8842-40DF-A57D-C0162CBC0492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A3BCB01-8842-40DF-A57D-C0162CBC0492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A3BCB01-8842-40DF-A57D-C0162CBC0492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A3BCB01-8842-40DF-A57D-C0162CBC0492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
