@@ -42,6 +42,7 @@ public class BP_TextOnlyController(ShredderDatabase datebase) : ControllerBase
             return NotFound();
         existingModel.HeadLine = bP_TextOnly.HeadLine;
         existingModel.CreationTime = bP_TextOnly.CreationTime;
+        existingModel.Text = bP_TextOnly.Text;
         await datebase.SaveChangesAsync();
         return NoContent();
     }

@@ -14,11 +14,14 @@ public class ShredderDatabase : DbContext
     public DbSet<BP_TextAndPicture> BP_TextAndPictures { get; set; }
     public DbSet<BP_TextOnly> BP_TextOnlys { get; set; }
 
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BP_Poll>(builder =>
         {
             builder.HasKey(s => s.Id);
+
         });
 
         modelBuilder.Entity<BP_TextAndPicture>(builder =>

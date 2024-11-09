@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CivilServantShredderApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,7 +30,9 @@ namespace CivilServantShredderApi.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     HeadLine = table.Column<string>(type: "TEXT", nullable: false),
-                    CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Text = table.Column<string>(type: "TEXT", nullable: true),
+                    PictureBase64 = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,7 +45,8 @@ namespace CivilServantShredderApi.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     HeadLine = table.Column<string>(type: "TEXT", nullable: false),
-                    CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Text = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

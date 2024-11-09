@@ -15,6 +15,11 @@ builder.Services.AddDbContext<ShredderDatabase>(o =>
 
 var app = builder.Build();
 
+using var scope = app.Services.CreateScope();
+
+using var dbContext = scope.ServiceProvider.GetRequiredService<ShredderDatabase>();
+dbContext.Database.Migrate();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

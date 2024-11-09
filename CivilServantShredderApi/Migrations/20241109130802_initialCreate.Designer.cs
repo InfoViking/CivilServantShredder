@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CivilServantShredderApi.Migrations
 {
     [DbContext(typeof(ShredderDatabase))]
-    [Migration("20241109113453_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241109130802_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,12 @@ namespace CivilServantShredderApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PictureBase64")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("BP_TextAndPictures");
@@ -66,6 +72,10 @@ namespace CivilServantShredderApi.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HeadLine")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

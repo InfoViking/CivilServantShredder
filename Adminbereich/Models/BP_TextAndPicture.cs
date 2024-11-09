@@ -1,21 +1,18 @@
-﻿using Adminbereich.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+﻿namespace Adminbereich.Models;
 
-namespace Adminbereich.Models
+public class BP_TextAndPicture
 {
-    public class BP_TextAndPicture : BP_TextOnly
-    {
-        public BP_TextAndPicture(string headLine, string text, string pictureBase64,  DateTime? creationTime = null) : base(headLine, text, creationTime)
-        {
-            _pictureBase64 = pictureBase64;
-        }
+    //public BP_TextAndPicture()
+    //{
 
-        private string _pictureBase64;
-        public string PictureBase64 { get { return _pictureBase64; } }
-    }
+    //}
+    //public BP_TextAndPicture(string headLine, string text, string pictureBase64,  DateTime? creationTime = null) : base(headLine, text, creationTime)
+    //{
+    //    PictureBase64 = pictureBase64;
+    //}
+    public Guid Id { get; set; }
+    public string HeadLine { get; set; } = default!;
+    public DateTime CreationTime { get; set; }
+    public string? Text { get; set; }
+    public string? PictureBase64 { get; set; }
 }

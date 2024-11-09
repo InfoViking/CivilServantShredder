@@ -1,19 +1,17 @@
 ﻿using Adminbereich.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Adminbereich.Models
+
+namespace Adminbereich.Models;
+
+public class BP_TextOnly
 {
-    public class BP_TextOnly : BlogPost
-    {
-        public BP_TextOnly(string headLine, string text, DateTime? creationTime = null) : base(headLine, creationTime)
-        {
-            _text = text;
-        }
-        private string _text;
-        public string Text { get { return _text; } }
-    }
+    //public BP_TextOnly() { }
+    //public BP_TextOnly(string headLine, string text, DateTime? creationTime = null) : base(headLine, creationTime)
+    //{
+    //    Text = text;
+    //}
+    public Guid Id { get; set; }
+    public string HeadLine { get; set; } = default!;
+    public DateTime CreationTime { get; set; }
+    public string Text { get; set; } = default!;
 }
