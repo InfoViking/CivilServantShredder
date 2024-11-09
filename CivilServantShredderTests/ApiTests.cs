@@ -87,6 +87,13 @@ public class Tests
             Id = Guid.NewGuid(),
             CreationTime = DateTime.Now,
             HeadLine = "Hello world",
+            Text = "Foo Bar",
+            PollSelections =
+            [
+                new("Option 1"),
+                new("Option 2"),
+                new("Option 3"),
+            ]
         };
         api.PostAsync(pollPost, cts.Token).Wait(cts.Token);
 

@@ -73,10 +73,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>  
 	  <MauiXaml Update="Feed.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

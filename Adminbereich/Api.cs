@@ -51,19 +51,23 @@ public class Api
     public async Task PostAsync<T>(T obj, CancellationToken cancellationToken)
     {
         using var client = GetHttpClient();
-        await client.PostAsJsonAsync(GetUrlEndpoint(typeof(T)), obj, cancellationToken).ConfigureAwait(false);
+        var response = await client.PostAsJsonAsync(GetUrlEndpoint(typeof(T)), obj, cancellationToken).ConfigureAwait(false);
+        var a = await response.Content.ReadAsStringAsync();
+        response.EnsureSuccessStatusCode();
     }
 
     public async Task PutAsync<T>(T obj, CancellationToken cancellationToken)
     {
         using var client = GetHttpClient();
-        await client.PutAsJsonAsync(GetUrlEndpoint(typeof(T)), obj, cancellationToken).ConfigureAwait(false);
+        var response = await client.PutAsJsonAsync(GetUrlEndpoint(typeof(T)), obj, cancellationToken).ConfigureAwait(false);
+        response.EnsureSuccessStatusCode();
     }
 
     public async Task DeleteAsync<T>(Guid id, CancellationToken cancellationToken) where T : class
     {
         using var client = GetHttpClient();
-        await client.DeleteAsync(GetUrlEndpoint(typeof(T)) + $"/{id}", cancellationToken).ConfigureAwait(false);
+        var response = await client.DeleteAsync(GetUrlEndpoint(typeof(T)) + $"/{id}", cancellationToken).ConfigureAwait(false);
+        response.EnsureSuccessStatusCode();
     }
 
     private static string GetUrlEndpoint(Type type)
