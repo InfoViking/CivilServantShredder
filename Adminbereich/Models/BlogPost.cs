@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Adminbereich.Interfaces;
 
-public class BlogPost
+public record BlogPost
 {
     public BlogPost()
     {
-                
+
     }
     public BlogPost(string headLine, DateTime? creationTime = null)
     {

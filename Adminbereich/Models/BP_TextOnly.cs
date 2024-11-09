@@ -3,7 +3,7 @@
 
 namespace Adminbereich.Models;
 
-public class BP_TextOnly
+public record BP_TextOnly
 {
     //public BP_TextOnly() { }
     //public BP_TextOnly(string headLine, string text, DateTime? creationTime = null) : base(headLine, creationTime)

@@ -1,6 +1,6 @@
 ﻿namespace Adminbereich.Models;
 
-public class BP_TextAndPicture
+public record BP_TextAndPicture
 {
     //public BP_TextAndPicture()
     //{

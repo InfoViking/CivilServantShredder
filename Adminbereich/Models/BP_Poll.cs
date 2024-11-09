@@ -3,7 +3,7 @@
 
 namespace Adminbereich.Models;
 
-public class BP_Poll : BlogPost
+public record BP_Poll : BlogPost
 {
     public BP_Poll()
     {

@@ -1,0 +1,111 @@
+using Adminbereich;
+using Adminbereich.Models;
+
+namespace CivilServantShredderTests;
+
+public class Tests
+{
+    [SetUp]
+    public void Setup()
+    {
+    }
+
+    [Test]
+    public void TextOnlyTests()
+    {
+        CancellationTokenSource cts = new(TimeSpan.FromSeconds(30));
+        var api = new Api();
+        var textOnlyPost = new BP_TextOnly()
+        {
+            Id = Guid.NewGuid(),
+            CreationTime = DateTime.Now,
+            HeadLine = "Hello world",
+            Text = "Foo Bar",
+        };
+        api.PostAsync(textOnlyPost, cts.Token).Wait(cts.Token);
+
+        var textOnlyPosts = api.GetAsync<BP_TextOnly>(cts.Token).Result.ToList();
+        Assert.That(textOnlyPosts, Is.Not.Null);
+        Assert.That(textOnlyPosts, Is.Not.Empty);
+        Assert.That(textOnlyPosts, Does.Contain(textOnlyPost));
+
+        var textOnlyPostCopy = api.GetAsync<BP_TextOnly>(textOnlyPost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(textOnlyPost));
+
+        textOnlyPost.Text = "Baz";
+        api.PutAsync(textOnlyPost, cts.Token).Wait(cts.Token);
+
+        textOnlyPostCopy = api.GetAsync<BP_TextOnly>(textOnlyPost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(textOnlyPost));
+
+        api.DeleteAsync<BP_TextOnly>(textOnlyPost.Id, cts.Token).Wait(cts.Token);
+        textOnlyPosts = api.GetAsync<BP_TextOnly>(cts.Token).Result.ToList();
+        Assert.That(textOnlyPosts, Does.Not.Contain(textOnlyPost));
+    }
+
+    [Test]
+    public void TextAndPictureTests()
+    {
+        CancellationTokenSource cts = new(TimeSpan.FromSeconds(30));
+        var api = new Api();
+        var textAndPicturePost = new BP_TextAndPicture()
+        {
+            Id = Guid.NewGuid(),
+            CreationTime = DateTime.Now,
+            HeadLine = "Hello world",
+            Text = "Foo Bar",
+            PictureBase64 = "base64code",
+        };
+        api.PostAsync(textAndPicturePost, cts.Token).Wait(cts.Token);
+
+        var textAndPicturePosts = api.GetAsync<BP_TextAndPicture>(cts.Token).Result.ToList();
+        Assert.That(textAndPicturePosts, Is.Not.Null);
+        Assert.That(textAndPicturePosts, Is.Not.Empty);
+        Assert.That(textAndPicturePosts, Does.Contain(textAndPicturePost));
+
+        var textOnlyPostCopy = api.GetAsync<BP_TextAndPicture>(textAndPicturePost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(textAndPicturePost));
+
+        textAndPicturePost.Text = "Baz";
+        api.PutAsync(textAndPicturePost, cts.Token).Wait(cts.Token);
+
+        textOnlyPostCopy = api.GetAsync<BP_TextAndPicture>(textAndPicturePost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(textAndPicturePost));
+
+        api.DeleteAsync<BP_TextAndPicture>(textAndPicturePost.Id, cts.Token).Wait(cts.Token);
+        textAndPicturePosts = api.GetAsync<BP_TextAndPicture>(cts.Token).Result.ToList();
+        Assert.That(textAndPicturePosts, Does.Not.Contain(textAndPicturePost));
+    }
+
+    [Test]
+    public void PollTests()
+    {
+        CancellationTokenSource cts = new(TimeSpan.FromSeconds(30));
+        var api = new Api();
+        var pollPost = new BP_Poll()
+        {
+            Id = Guid.NewGuid(),
+            CreationTime = DateTime.Now,
+            HeadLine = "Hello world",
+        };
+        api.PostAsync(pollPost, cts.Token).Wait(cts.Token);
+
+        var pollPosts = api.GetAsync<BP_Poll>(cts.Token).Result.ToList();
+        Assert.That(pollPosts, Is.Not.Null);
+        Assert.That(pollPosts, Is.Not.Empty);
+        Assert.That(pollPosts, Does.Contain(pollPost));
+
+        var textOnlyPostCopy = api.GetAsync<BP_Poll>(pollPost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(pollPost));
+
+        pollPost.HeadLine = "Baz";
+        api.PutAsync(pollPost, cts.Token).Wait(cts.Token);
+
+        textOnlyPostCopy = api.GetAsync<BP_Poll>(pollPost.Id, cts.Token).Result;
+        Assert.That(textOnlyPostCopy, Is.EqualTo(pollPost));
+
+        api.DeleteAsync<BP_TextAndPicture>(pollPost.Id, cts.Token).Wait(cts.Token);
+        pollPosts = api.GetAsync<BP_Poll>(cts.Token).Result.ToList();
+        Assert.That(pollPosts, Does.Not.Contain(pollPost));
+    }
+}
