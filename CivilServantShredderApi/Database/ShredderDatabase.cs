@@ -1,5 +1,6 @@
 ﻿using Adminbereich.Models;
 using Microsoft.EntityFrameworkCore;
+using Userbereich.Models;
 
 namespace CivilServantShredderApi.Database;
 
@@ -13,6 +14,9 @@ public class ShredderDatabase : DbContext
     public DbSet<BP_Poll> BP_Polls { get; set; }
     public DbSet<BP_TextAndPicture> BP_TextAndPictures { get; set; }
     public DbSet<BP_TextOnly> BP_TextOnlys { get; set; }
+     
+    public DbSet<Community> Communities { get; set; }
+    public DbSet<User> Users { get; set; }
 
 
 
@@ -31,6 +35,17 @@ public class ShredderDatabase : DbContext
         });
 
         modelBuilder.Entity<BP_TextOnly>(builder =>
+        {
+            builder.HasKey(s => s.Id);
+        });
+
+        modelBuilder.Entity<Community>(builder =>
+        {
+            builder.HasKey(s => s.Id);
+            builder.Property(x => x.Name).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<User>(builder =>
         {
             builder.HasKey(s => s.Id);
         });

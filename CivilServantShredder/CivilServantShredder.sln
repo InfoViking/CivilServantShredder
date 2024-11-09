@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adminbereich", "..\Adminber
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CivilServantShredderApi", "..\CivilServantShredderApi\CivilServantShredderApi.csproj", "{5A3BCB01-8842-40DF-A57D-C0162CBC0492}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivilServantShredderTests", "..\CivilServantShredderTests\CivilServantShredderTests.csproj", "{50D25235-9208-42AE-9441-48951BEE0F8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CivilServantShredderTests", "..\CivilServantShredderTests\CivilServantShredderTests.csproj", "{50D25235-9208-42AE-9441-48951BEE0F8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Userbereich", "..\Userbereich\Userbereich.csproj", "{40DF1DFF-B277-49BE-AEC7-526683FF0794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{50D25235-9208-42AE-9441-48951BEE0F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D25235-9208-42AE-9441-48951BEE0F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D25235-9208-42AE-9441-48951BEE0F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40DF1DFF-B277-49BE-AEC7-526683FF0794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40DF1DFF-B277-49BE-AEC7-526683FF0794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40DF1DFF-B277-49BE-AEC7-526683FF0794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40DF1DFF-B277-49BE-AEC7-526683FF0794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
