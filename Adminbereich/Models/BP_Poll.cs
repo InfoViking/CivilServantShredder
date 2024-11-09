@@ -1,17 +1,28 @@
 ﻿using Adminbereich.Interfaces;
 
-
 namespace Adminbereich.Models;
 
-public class BP_Poll : BlogPost
+public class BP_Poll : IBlogPost
 {
     public BP_Poll()
+    { }
+
+    public BP_Poll(string headLine, string text, List<PollSelection> pollSelections, DateTime? creationTime = null)
     {
+        Id = Guid.NewGuid();
+        HeadLine = headLine;
+        Text = text;
+
+        if (creationTime == null)
+            CreationTime = DateTime.Now;
+        else
+            CreationTime = creationTime.Value;
     }
 
-    public BP_Poll(string headLine, Poll poll, DateTime? creationTime = null) : base(headLine, creationTime)
-    { _poll = poll; }
+    public Guid Id { get; set; }
+    public string HeadLine { get; set; } = default!;
+    public string Text { get; set; } = default!;
+    public DateTime CreationTime { get; set; }
 
-    private Poll _poll;
-    private Poll Poll { get { return _poll; } }
+    public List<PollSelection> PollSelections = new List<PollSelection>();
 }
