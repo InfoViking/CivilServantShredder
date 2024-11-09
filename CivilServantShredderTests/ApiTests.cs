@@ -27,7 +27,7 @@ public class Tests
         var textOnlyPosts = api.GetAsync<BP_TextOnly>(cts.Token).Result.ToList();
         Assert.That(textOnlyPosts, Is.Not.Null);
         Assert.That(textOnlyPosts, Is.Not.Empty);
-        Assert.That(textOnlyPosts, Does.Contain(textOnlyPost));
+        Assert.That(textOnlyPosts.Any(p => p.Equals(textOnlyPost)), Is.True);
 
         var textOnlyPostCopy = api.GetAsync<BP_TextOnly>(textOnlyPost.Id, cts.Token).Result;
         Assert.That(textOnlyPostCopy, Is.EqualTo(textOnlyPost));
@@ -40,7 +40,7 @@ public class Tests
 
         api.DeleteAsync<BP_TextOnly>(textOnlyPost.Id, cts.Token).Wait(cts.Token);
         textOnlyPosts = api.GetAsync<BP_TextOnly>(cts.Token).Result.ToList();
-        Assert.That(textOnlyPosts, Does.Not.Contain(textOnlyPost));
+        Assert.That(textOnlyPosts.Any(p => p.Equals(textOnlyPost)), Is.False);
     }
 
     [Test]
@@ -61,7 +61,7 @@ public class Tests
         var textAndPicturePosts = api.GetAsync<BP_TextAndPicture>(cts.Token).Result.ToList();
         Assert.That(textAndPicturePosts, Is.Not.Null);
         Assert.That(textAndPicturePosts, Is.Not.Empty);
-        Assert.That(textAndPicturePosts, Does.Contain(textAndPicturePost));
+        Assert.That(textAndPicturePosts.Any(p => p.Equals(textAndPicturePost)), Is.True);
 
         var textOnlyPostCopy = api.GetAsync<BP_TextAndPicture>(textAndPicturePost.Id, cts.Token).Result;
         Assert.That(textOnlyPostCopy, Is.EqualTo(textAndPicturePost));
@@ -74,7 +74,7 @@ public class Tests
 
         api.DeleteAsync<BP_TextAndPicture>(textAndPicturePost.Id, cts.Token).Wait(cts.Token);
         textAndPicturePosts = api.GetAsync<BP_TextAndPicture>(cts.Token).Result.ToList();
-        Assert.That(textAndPicturePosts, Does.Not.Contain(textAndPicturePost));
+        Assert.That(textAndPicturePosts.Any(p => p.Equals(textAndPicturePost)), Is.False);
     }
 
     [Test]
@@ -93,7 +93,7 @@ public class Tests
         var pollPosts = api.GetAsync<BP_Poll>(cts.Token).Result.ToList();
         Assert.That(pollPosts, Is.Not.Null);
         Assert.That(pollPosts, Is.Not.Empty);
-        Assert.That(pollPosts, Does.Contain(pollPost));
+        Assert.That(pollPosts.Any(p => p.Equals(pollPost)), Is.True);
 
         var textOnlyPostCopy = api.GetAsync<BP_Poll>(pollPost.Id, cts.Token).Result;
         Assert.That(textOnlyPostCopy, Is.EqualTo(pollPost));
@@ -106,6 +106,6 @@ public class Tests
 
         api.DeleteAsync<BP_TextAndPicture>(pollPost.Id, cts.Token).Wait(cts.Token);
         pollPosts = api.GetAsync<BP_Poll>(cts.Token).Result.ToList();
-        Assert.That(pollPosts, Does.Not.Contain(pollPost));
+        Assert.That(pollPosts.Any(p => p.Equals(pollPost)), Is.False);
     }
 }
