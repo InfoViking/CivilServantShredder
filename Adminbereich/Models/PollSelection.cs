@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Adminbereich.Models
 {
-    public class PollSelection
+    public record PollSelection
     {
         public PollSelection(string selectionText, bool selected = false)
         {
