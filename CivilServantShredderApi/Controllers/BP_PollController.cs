@@ -42,7 +42,9 @@ public class BP_PollController(ShredderDatabase datebase) : ControllerBase
         if (existingModel == null)
             return NotFound();
         existingModel.HeadLine = bp_poll.HeadLine;
+        existingModel.Text = bp_poll.Text;
         existingModel.CreationTime = bp_poll.CreationTime;
+        existingModel.PollSelections = bp_poll.PollSelections;
         await datebase.SaveChangesAsync();
         return NoContent();
     }

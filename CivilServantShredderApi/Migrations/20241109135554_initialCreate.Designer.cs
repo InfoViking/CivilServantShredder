@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CivilServantShredderApi.Migrations
 {
     [DbContext(typeof(ShredderDatabase))]
-    [Migration("20241109130802_initialCreate")]
+    [Migration("20241109135554_initialCreate")]
     partial class initialCreate
     {
         /// <inheritdoc />
@@ -30,6 +30,10 @@ namespace CivilServantShredderApi.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HeadLine")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -82,6 +86,37 @@ namespace CivilServantShredderApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BP_TextOnlys");
+                });
+
+            modelBuilder.Entity("Adminbereich.Models.BP_Poll", b =>
+                {
+                    b.OwnsMany("Adminbereich.Models.PollSelection", "PollSelections", b1 =>
+                        {
+                            b1.Property<Guid>("BP_PollId")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<bool>("Selected")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("SelectionText")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("BP_PollId", "Id");
+
+                            b1.ToTable("BP_Polls");
+
+                            b1.ToJson("PollSelections");
+
+                            b1.WithOwner()
+                                .HasForeignKey("BP_PollId");
+                        });
+
+                    b.Navigation("PollSelections");
                 });
 #pragma warning restore 612, 618
         }

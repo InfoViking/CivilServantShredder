@@ -42,6 +42,8 @@ public class BP_TextAndPictureController(ShredderDatabase datebase) : Controller
             return NotFound();
         existingModel.HeadLine = bP_TextAndPicture.HeadLine;
         existingModel.CreationTime = bP_TextAndPicture.CreationTime;
+        existingModel.Text = bP_TextAndPicture.Text;
+        existingModel.PictureBase64 = bP_TextAndPicture.PictureBase64;
         await datebase.SaveChangesAsync();
         return NoContent();
     }

@@ -21,6 +21,7 @@ public class ShredderDatabase : DbContext
         modelBuilder.Entity<BP_Poll>(builder =>
         {
             builder.HasKey(s => s.Id);
+            builder.OwnsMany(x => x.PollSelections, build => { build.ToJson(); });
 
         });
 

@@ -24,5 +24,5 @@ public class BP_Poll : IBlogPost
     public string Text { get; set; } = default!;
     public DateTime CreationTime { get; set; }
 
-    public List<PollSelection> PollSelections = new List<PollSelection>();
+    public List<PollSelection> PollSelections { get; set; } = new List<PollSelection>();
 }
