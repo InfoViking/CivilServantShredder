@@ -33,5 +33,10 @@
     	<string>fetch</string>
     	<string>external-accessory</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+    	<string>fetch</string>
+    	<string>external-accessory</string>
+	</array>
 </dict>
 </plist>
