@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Adminbereich.View.Views.New_BlogPost_Selection"
              Title="New Post">
-    <VerticalStackLayout>
+    <VerticalStackLayout HorizontalOptions="Center">
         <Label 
             Text="Please select your desired Post-Type"
             VerticalOptions="Center" 
@@ -23,5 +23,12 @@
                 Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_Poll"/>
+
+        <Button Text="Cancle"
+                Margin="0, 20, 0, 0"
+                MaximumWidthRequest="200"
+                Clicked="Button_Cancle_Clicked"
+                Background="coral"
+                />
     </VerticalStackLayout>
 </ContentPage>
