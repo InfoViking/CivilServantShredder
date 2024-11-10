@@ -46,8 +46,26 @@ public partial class New_BlogPost_Poll : ContentPage
 
     private async void createAndSendPostToApi()
     {
-        await DisplayAlert("Chill mo!", "Do gehts noch net weida", "ok");
-        await close();
+        try
+        {
+            List<PollSelection> allPollSelections = new List<PollSelection>();
+
+            foreach (string selectionText in PollSelections)
+            { allPollSelections.Add(new PollSelection(selectionText)); }
+
+            BP_Poll pollPost = new BP_Poll(HeadLine_Entry.Text, Text_Entry.Text, allPollSelections);
+            pollPost.CommunityId = Guid.Parse("761b8d06-b8dc-4ff4-9779-912792531219");
+
+            Api api = new Api();
+
+            CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            await api.PostAsync(pollPost, cts.Token);
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "ok"); ;
+        }
+        finally { await Navigation.PopAsync(); }
     }
 
     private async void Button_Cancle_Clicked(object sender, EventArgs e)

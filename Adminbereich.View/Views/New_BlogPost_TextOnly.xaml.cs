@@ -1,3 +1,5 @@
+using Adminbereich.Models;
+
 namespace Adminbereich.View.Views;
 
 public partial class New_BlogPost_TextOnly : ContentPage
@@ -37,8 +39,21 @@ public partial class New_BlogPost_TextOnly : ContentPage
 
     private async void createAndSendPostToApi()
     {
-        await DisplayAlert("Chill mo!", "Do gehts noch net weida", "ok");
-        await close();
+        try
+        {
+            BP_TextOnly textOnlyPost = new BP_TextOnly(HeadLine_Entry.Text, Text_Entry.Text);
+            textOnlyPost.CommunityId = Guid.Parse("761b8d06-b8dc-4ff4-9779-912792531219");
+
+            Api api = new Api();
+
+            CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            await api.PostAsync(textOnlyPost, cts.Token);
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "ok"); ;
+        }
+        finally { await Navigation.PopAsync(); }
     }
 
     private async void Button_Cancle_Clicked(object sender, EventArgs e)
