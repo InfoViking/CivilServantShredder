@@ -9,7 +9,7 @@
 
              Title="Feed">
 
-    <Grid RowDefinitions="auto,*,auto,auto">
+    <Grid RowDefinitions="auto,*,auto,auto,auto">
         <Label
             Grid.Row="0"
             Text="Was gibt es neues?"
@@ -64,6 +64,13 @@
                 FontAttributes="Bold"
                 Margin="5"
                 Clicked="Create_Post_Clicked"/>
+
+        <Button
+            Grid.Row="3"
+                Text="Umfrage"
+                FontAttributes="Bold"
+                Margin="5"
+                Clicked="Button_Clicked"/>
 
         <Button
             Grid.Row="4"

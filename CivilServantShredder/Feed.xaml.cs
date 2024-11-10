@@ -24,4 +24,9 @@ public partial class Feed : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(New_BlogPost_Selection), true);
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(PollPage), true);
+    }
 }

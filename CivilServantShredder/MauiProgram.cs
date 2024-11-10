@@ -20,6 +20,9 @@ namespace CivilServantShredder
 
             builder.Services.AddSingleton<FeedViewModel>();
             builder.Services.AddSingleton<Feed>();
+
+            builder.Services.AddSingleton<PollViewModel>();
+            builder.Services.AddSingleton<PollPage>();
 #endif
 
             return builder.Build();

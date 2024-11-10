@@ -84,11 +84,20 @@
 	  <MauiXaml Update="Feed.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PollPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Assets\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="PollPage.xaml.cs">
+	    <DependentUpon>PollPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
