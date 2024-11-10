@@ -48,6 +48,8 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\titlescreen.png" Resize="True" BaseSize="300,185" />
+		<MauiImage Update="Resources\Images\explanationnfcscan.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -82,6 +84,19 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Assets\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\Images\explanationnfcscan.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\Images\titlescreen.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>
