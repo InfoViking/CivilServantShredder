@@ -24,6 +24,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\New_BlogPost_Poll.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\New_BlogPost_Selection.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
