@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Adminbereich.View.Views.New_BlogPost_Selection"
-             Title="Post-Type">
+             Title="New Post">
     <VerticalStackLayout>
         <Label 
             Text="Please select your desired Post-Type"
@@ -10,17 +10,17 @@
             HorizontalOptions="Center" />
 
         <Button Text="Text Only" 
-                Margin="10, 0, 0, 0"
+                Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_TextOnly"/>
 
         <Button Text="Text and Picture"
-                Margin="10, 0, 0, 0"
+                Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_TextAndPicture"/>
 
         <Button Text="Poll"
-                Margin="10, 0, 0, 0"
+                Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_Poll"/>
     </VerticalStackLayout>
