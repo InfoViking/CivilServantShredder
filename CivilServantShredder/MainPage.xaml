@@ -9,7 +9,7 @@
             Spacing="25">
             <Image
                 x:Name="TitleImage"
-                Source="Assets/TitleScreen.png"
+                Source="titlescreen2.png"
                 HeightRequest="200"
                 Aspect="AspectFit"
                 SemanticProperties.Description="CommunityConnect" />
