@@ -16,6 +16,7 @@ namespace CivilServantShredderApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CommunityId = table.Column<Guid>(type: "TEXT", nullable: false),
                     HeadLine = table.Column<string>(type: "TEXT", nullable: false),
                     Text = table.Column<string>(type: "TEXT", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -31,6 +32,7 @@ namespace CivilServantShredderApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CommunityId = table.Column<Guid>(type: "TEXT", nullable: false),
                     HeadLine = table.Column<string>(type: "TEXT", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Text = table.Column<string>(type: "TEXT", nullable: true),
@@ -46,6 +48,7 @@ namespace CivilServantShredderApi.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CommunityId = table.Column<Guid>(type: "TEXT", nullable: false),
                     Text = table.Column<string>(type: "TEXT", nullable: false),
                     HeadLine = table.Column<string>(type: "TEXT", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "TEXT", nullable: false)

@@ -20,6 +20,7 @@ public record BP_TextAndPicture : IBlogPost
             CreationTime = creationTime.Value;
     }
     public Guid Id { get; set; }
+    public Guid CommunityId { get; set; }
     public string HeadLine { get; set; } = default!;
     public DateTime CreationTime { get; set; }
     public string? Text { get; set; }

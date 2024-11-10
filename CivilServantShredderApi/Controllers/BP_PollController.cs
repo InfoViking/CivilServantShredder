@@ -26,6 +26,13 @@ public class BP_PollController(ShredderDatabase datebase) : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("byCommunity/{communityId}")]
+    public async Task<ActionResult<List<BP_Poll>>> GetByCommunityId(Guid communityId)
+    {
+        var result = await datebase.BP_Polls.Where(x => x.CommunityId == communityId).ToListAsync();
+        return Ok(result);
+    }
+
 
     [HttpPost]
     public async Task<ActionResult<BP_Poll>> Create(BP_Poll bp_poll)
@@ -41,6 +48,7 @@ public class BP_PollController(ShredderDatabase datebase) : ControllerBase
         var existingModel = await datebase.BP_Polls.SingleOrDefaultAsync(x => x.Id == bp_poll.Id);
         if (existingModel == null)
             return NotFound();
+
         existingModel.HeadLine = bp_poll.HeadLine;
         existingModel.Text = bp_poll.Text;
         existingModel.CreationTime = bp_poll.CreationTime;

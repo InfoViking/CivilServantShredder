@@ -26,6 +26,13 @@ public class BP_TextAndPictureController(ShredderDatabase datebase) : Controller
         return Ok(result);
     }
 
+    [HttpGet("byCommunity/{communityId}")]
+    public async Task<ActionResult<List<BP_TextAndPicture>>> GetByCommunityId(Guid communityId)
+    {
+        var result = await datebase.BP_TextAndPictures.Where(x => x.CommunityId == communityId).ToListAsync();
+        return Ok(result);
+    }
+
     [HttpPost]
     public async Task<ActionResult<BP_Poll>> Create(BP_TextAndPicture bP_TextAndPicture)
     {

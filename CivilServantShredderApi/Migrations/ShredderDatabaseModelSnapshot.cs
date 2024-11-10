@@ -23,6 +23,9 @@ namespace CivilServantShredderApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("CommunityId")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("TEXT");
 
@@ -43,6 +46,9 @@ namespace CivilServantShredderApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CommunityId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
@@ -67,6 +73,9 @@ namespace CivilServantShredderApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CommunityId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")

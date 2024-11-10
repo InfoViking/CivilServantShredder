@@ -26,6 +26,13 @@ public class BP_TextOnlyController(ShredderDatabase datebase) : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("byCommunity/{communityId}")]
+    public async Task<ActionResult<List<BP_TextOnly>>> GetByCommunityId(Guid communityId)
+    {
+        var result = await datebase.BP_TextOnlys.Where(x => x.CommunityId == communityId).ToListAsync();
+        return Ok(result);
+    }
+
     [HttpPost]
     public async Task<ActionResult<BP_TextOnly>> Create(BP_TextOnly bP_TextOnly)
     {

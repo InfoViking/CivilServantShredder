@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CivilServantShredderApi.Migrations
 {
     [DbContext(typeof(ShredderDatabase))]
-    [Migration("20241110085146_InitialCreate")]
+    [Migration("20241110101924_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,6 +24,9 @@ namespace CivilServantShredderApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CommunityId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
@@ -48,6 +51,9 @@ namespace CivilServantShredderApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("CommunityId")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("TEXT");
 
@@ -70,6 +76,9 @@ namespace CivilServantShredderApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CommunityId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")

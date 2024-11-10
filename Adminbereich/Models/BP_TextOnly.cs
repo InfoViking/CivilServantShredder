@@ -17,8 +17,10 @@ public record BP_TextOnly : IBlogPost
         else
             CreationTime = creationTime.Value;
     }
-    public string Text { get; set; } = default!;
+
     public Guid Id { get; set; }
+    public Guid CommunityId { get; set; }
+    public string Text { get; set; } = default!;
     public string HeadLine { get; set; } = default!;
     public DateTime CreationTime { get; set; }
 }
