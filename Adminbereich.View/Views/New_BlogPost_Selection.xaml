@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Adminbereich.View.Views.New_BlogPost_Selection"
+             Title="New Post">
+    <VerticalStackLayout HorizontalOptions="Center">
+        <Label 
+            Text="Please select your desired Post-Type"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button Text="Text Only" 
+                Margin="0, 20, 0, 0"
+                MaximumWidthRequest="200"
+                Clicked="Button_Clicked_TextOnly"/>
+
+        <Button Text="Text and Picture"
+                Margin="0, 20, 0, 0"
+                MaximumWidthRequest="200"
+                Clicked="Button_Clicked_TextAndPicture"/>
+
+        <Button Text="Poll"
+                Margin="0, 20, 0, 0"
+                MaximumWidthRequest="200"
+                Clicked="Button_Clicked_Poll"/>
+
+        <Button Text="Cancle"
+                Margin="0, 20, 0, 0"
+                MaximumWidthRequest="200"
+                Clicked="Button_Cancle_Clicked"
+                Background="coral"
+                />
+    </VerticalStackLayout>
+</ContentPage>

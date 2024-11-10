@@ -1,4 +1,4 @@
-﻿using Plugin.NFC;
+using Plugin.NFC;
 
 namespace CivilServantShredder
 {
@@ -9,8 +9,13 @@ namespace CivilServantShredder
         public MainPage()
         {
             InitializeComponent();
-            CrossNFC.Current.OnMessageReceived += Current_OnMessageReceived;
-            CrossNFC.Current.StartListening();
+            CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
+        }
+
+        private async void CurrentOnOnMessageReceived(ITagInfo taginfo)
+        {
+            await Shell.Current.GoToAsync(nameof(Feed), true);
+            CrossNFC.Current.StopListening();
         }
 
         
@@ -36,6 +41,12 @@ namespace CivilServantShredder
         {
             await Shell.Current.GoToAsync(nameof(Feed), true);
         }
-    }
 
+        private void BtnNfc_OnClicked(object? sender, EventArgs e)
+        {
+            if (!CrossNFC.Current.IsAvailable) return;
+            if (!CrossNFC.Current.IsEnabled) return;
+            CrossNFC.Current.StartListening();
+        }
+    }
 }

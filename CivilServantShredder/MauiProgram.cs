@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CivilServantShredder.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace CivilServantShredder
 {
@@ -16,6 +17,9 @@ namespace CivilServantShredder
                 });
 #if DEBUG
     		builder.Logging.AddDebug();
+
+            builder.Services.AddSingleton<FeedViewModel>();
+            builder.Services.AddSingleton<Feed>();
 #endif
 
             return builder.Build();

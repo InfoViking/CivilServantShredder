@@ -15,9 +15,9 @@
 
             <Label
                 x:Name="lblUsername"
-                Text="Enter Username" 
+                Text="Enter Username"
                 SemanticProperties.Hint="Enter own username in the text field below"
-                HorizontalOptions="Fill"   
+                HorizontalOptions="Fill"
             />
 
             <Entry
@@ -26,16 +26,16 @@
 
             <Label
                 x:Name="lblPasssword"
-                Text="Enter Password" 
+                Text="Enter Password"
                 SemanticProperties.Hint="Enter own password in the text field below"
-                HorizontalOptions="Fill"   
+                HorizontalOptions="Fill"
             />
 
-            
+
             <Entry
                 x:Name="EntryPassword"
                 IsPassword="True"
-                
+
                 />
 
             <Button
@@ -48,6 +48,12 @@
                 x:Name="BtnLogin"
                 Text="Login"
                 Clicked="BtnLogin_Clicked"
+                />
+
+            <Button
+                x:Name="BtnNfc"
+                Text="Personalausweis scannen"
+                Clicked="BtnNfc_OnClicked"
                 />
 
 
