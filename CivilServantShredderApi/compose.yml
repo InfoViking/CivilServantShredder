@@ -1,9 +1,0 @@
-services:
-
-  todoapi:
-    image: brocker591/shredder
-    container_name: shredder
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    networks:
-      - tinysoftware
