@@ -56,9 +56,9 @@ public class BP_TextAndPictureController(ShredderDatabase datebase) : Controller
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<BP_TextAndPicture>> Delete(BP_TextAndPicture bP_TextAndPicture)
+    public async Task<ActionResult<BP_TextAndPicture>> Delete(Guid id)
     {
-        var existingModel = await datebase.BP_TextAndPictures.SingleOrDefaultAsync(x => x.Id == bP_TextAndPicture.Id);
+        var existingModel = await datebase.BP_TextAndPictures.SingleOrDefaultAsync(x => x.Id == id);
         if (existingModel == null)
             return NotFound();
 

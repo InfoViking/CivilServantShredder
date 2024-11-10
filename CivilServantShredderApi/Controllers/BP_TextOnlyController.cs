@@ -55,9 +55,9 @@ public class BP_TextOnlyController(ShredderDatabase datebase) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<BP_TextOnly>> Delete(BP_TextOnly bP_TextOnly)
+    public async Task<ActionResult<BP_TextOnly>> Delete(Guid id)
     {
-        var existingModel = await datebase.BP_TextOnlys.SingleOrDefaultAsync(x => x.Id == bP_TextOnly.Id);
+        var existingModel = await datebase.BP_TextOnlys.SingleOrDefaultAsync(x => x.Id == id);
         if (existingModel == null)
             return NotFound();
 

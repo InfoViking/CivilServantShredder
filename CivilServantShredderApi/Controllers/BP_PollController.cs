@@ -58,9 +58,9 @@ public class BP_PollController(ShredderDatabase datebase) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<BP_Poll>> Delete(BP_Poll bp_poll)
+    public async Task<ActionResult<BP_Poll>> Delete(Guid id)
     {
-        var existingModel = await datebase.BP_Polls.SingleOrDefaultAsync(x => x.Id == bp_poll.Id);
+        var existingModel = await datebase.BP_Polls.SingleOrDefaultAsync(x => x.Id == id);
         if (existingModel == null)
             return NotFound();
 
