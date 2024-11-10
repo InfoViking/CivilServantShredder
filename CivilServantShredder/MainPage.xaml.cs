@@ -1,4 +1,6 @@
-﻿namespace CivilServantShredder
+﻿using Plugin.NFC;
+
+namespace CivilServantShredder
 {
     public partial class MainPage : ContentPage
     {
@@ -7,7 +9,11 @@
         public MainPage()
         {
             InitializeComponent();
+            CrossNFC.Current.OnMessageReceived += Current_OnMessageReceived;
+            CrossNFC.Current.StartListening();
         }
+
+        
 
         public void ChangePasswordVisibility()
         {
