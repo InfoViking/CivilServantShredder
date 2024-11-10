@@ -59,6 +59,7 @@ public class UserController(ShredderDatabase database) : ControllerBase
         existing.Street = user.Street;
         existing.CommunityId = user.CommunityId;
         existing.Email = user.Email;
+        existing.UserRole = user.UserRole;
 
         await database.SaveChangesAsync();
         return NoContent();

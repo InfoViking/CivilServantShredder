@@ -19,7 +19,7 @@ public class ShredderDatabase : DbContext
     public DbSet<User> Users { get; set; }
 
 
-
+    // Userrolle der Datenbank hinzufügen.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BP_Poll>(builder =>
