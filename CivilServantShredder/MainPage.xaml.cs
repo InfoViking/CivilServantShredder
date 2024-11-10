@@ -27,9 +27,9 @@ namespace CivilServantShredder
             throw new NotImplementedException();
         }
 
-        private void CurrentOnOnMessageReceived(ITagInfo taginfo)
+        private async void CurrentOnOnMessageReceived(ITagInfo taginfo)
         {
-            throw new NotImplementedException();
+            await Shell.Current.GoToAsync(nameof(Feed), true);
         }
 
         public void ChangePasswordVisibility()
