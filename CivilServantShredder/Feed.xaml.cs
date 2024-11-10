@@ -10,6 +10,7 @@ public partial class Feed : ContentPage
 	{
 		InitializeComponent();
         this.ViewModel = viewModel;
+        BindingContext = ViewModel;
     }
 
     protected override void OnAppearing()

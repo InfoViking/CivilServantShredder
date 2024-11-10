@@ -5,21 +5,18 @@
              xmlns:model="clr-namespace:CivilServantShredder.Models"
              xmlns:viewmodel="clr-namespace:CivilServantShredder.ViewModel"
              x:DataType="viewmodel:FeedViewModel"
+             
 
              Title="Feed">
 
-
-    <Grid ColumnDefinitions="auto,*,*">
-
+    <VerticalStackLayout>
         <Label 
-            Grid.Row="0"
             Text="Was gibt es neues?"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <CollectionView
-            Grid.Row="1"
-            ItemsSource="{Binding BP_TextOnlys}"
+            ItemsSource="{Binding BP_TextOnlys, Mode=TwoWay}"
             SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:BP_TextOnlyModel">
@@ -29,18 +26,16 @@
                             <Frame 
                                 Grid.Column="1"
                                 Style="{StaticResource CardView}">
-                                <Grid Padding="0" RowDefinitions="*,auto,auto" ColumnDefinitions="*,auto,auto, auto">
-                                    <Label Text="{Binding HeadLine}" 
-                                               Grid.ColumnSpan="4" 
+                                <Grid Padding="0" RowDefinitions="auto,*">
+                                    <Label Text="{Binding HeadLine, Mode=TwoWay}" 
                                                Grid.Row="0"
                                                FontSize="16" 
                                                Margin="5"
-                                               HorizontalTextAlignment="Start"
-                                               VerticalTextAlignment="Start"/>
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"/>
 
-                                    <Label Text="{Binding Text}" 
-                                                Grid.Column="0"
-                                                Grid.Row="2"
+                                    <Label Text="{Binding Text, Mode=TwoWay}" 
+                                                Grid.Row="1"
                                                 FontSize="16" 
                                                 Margin="5"
                                                 HorizontalTextAlignment="Start"
@@ -54,14 +49,12 @@
         </CollectionView>
 
 
-        <!--Settings Leiste-->
-        <Grid>
-            <Button 
-                Grid.Row="2"
+
+        <Button 
                 Text="Create Post" 
                     FontAttributes="Bold"
                     MaximumWidthRequest="150"
                     Clicked="Create_Post_Clicked"/>
-        </Grid>
-     </Grid>
+
+    </VerticalStackLayout>
 </ContentPage>
