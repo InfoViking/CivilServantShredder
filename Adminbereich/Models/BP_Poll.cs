@@ -12,6 +12,7 @@ public record BP_Poll : IBlogPost
         Id = Guid.NewGuid();
         HeadLine = headLine;
         Text = text;
+        PollSelections = pollSelections;
 
         if (creationTime == null)
             CreationTime = DateTime.Now;

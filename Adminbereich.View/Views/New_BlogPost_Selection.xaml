@@ -4,12 +4,12 @@
              x:Class="Adminbereich.View.Views.New_BlogPost_Selection"
              Title="New Post">
     <VerticalStackLayout HorizontalOptions="Center">
-        <Label 
+        <Label
             Text="Please select your desired Post-Type"
-            VerticalOptions="Center" 
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
 
-        <Button Text="Text Only" 
+        <Button Text="Text Only"
                 Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_TextOnly"/>
@@ -24,10 +24,10 @@
                 MaximumWidthRequest="200"
                 Clicked="Button_Clicked_Poll"/>
 
-        <Button Text="Cancle"
+        <Button Text="Cancel"
                 Margin="0, 20, 0, 0"
                 MaximumWidthRequest="200"
-                Clicked="Button_Cancle_Clicked"
+                Clicked="Button_Cancel_Clicked"
                 Background="coral"
                 />
     </VerticalStackLayout>

@@ -9,7 +9,7 @@ namespace CivilServantShredder
         public MainPage()
         {
             InitializeComponent();
-            CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
+            //CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
         }
 
         private async void CurrentOnOnMessageReceived(ITagInfo taginfo)
