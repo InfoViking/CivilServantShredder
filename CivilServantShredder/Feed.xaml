@@ -5,34 +5,35 @@
              xmlns:model="clr-namespace:CivilServantShredder.Models"
              xmlns:viewmodel="clr-namespace:CivilServantShredder.ViewModel"
              x:DataType="viewmodel:FeedViewModel"
-             
+
 
              Title="Feed">
 
     <Grid RowDefinitions="auto,*,auto,auto">
-        <Label 
+        <Label
             Grid.Row="0"
             Text="Was gibt es neues?"
-            VerticalOptions="Center" 
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
 
         <CollectionView
             Grid.Row="1"
             VerticalOptions="FillAndExpand"
             ItemsSource="{Binding BP_TextOnlys, Mode=TwoWay}"
+            ItemSizingStrategy="MeasureAllItems"
             SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:BP_TextOnlyModel">
-                    <Grid Padding="5" HeightRequest="200">
+                    <Grid Padding="5" MinimumHeightRequest="30">
 
                         <Grid Padding="1">
-                            <Frame 
+                            <Frame
                                 Grid.Column="1"
-                                Style="{StaticResource CardView}">
+                                Style="{DynamicResource CardView}">
                                 <Grid Padding="0" RowDefinitions="auto,auto,*">
-                                    <Label Text="{Binding HeadLine, Mode=TwoWay}" 
+                                    <Label Text="{Binding HeadLine, Mode=TwoWay}"
                                                Grid.Row="0"
-                                               FontSize="16" 
+                                               FontSize="16"
                                                Margin="5"
                                                 LineBreakMode="WordWrap"
                                                HorizontalTextAlignment="Center"
@@ -40,9 +41,9 @@
 
                                     <BoxView Grid.Row="1" BackgroundColor="#9880e5"  HeightRequest="3"/>
 
-                                    <Label Text="{Binding Text, Mode=TwoWay}" 
+                                    <Label Text="{Binding Text, Mode=TwoWay}"
                                                 Grid.Row="2"
-                                                FontSize="14" 
+                                                FontSize="14"
                                                 Margin="5"
                                                 LineBreakMode="WordWrap"
                                                 HorizontalTextAlignment="Start"
@@ -57,20 +58,20 @@
 
 
 
-        <Button 
+        <Button
             Grid.Row="2"
-                Text="Create Post" 
+                Text="Create Post"
                 FontAttributes="Bold"
                 Margin="5"
                 Clicked="Create_Post_Clicked"/>
 
         <Button
             Grid.Row="4"
-            Text="Refresh" 
+            Text="Refresh"
             FontAttributes="Bold"
             Margin="5"
             Command="{Binding GetBP_TextOnlyAsyncCommand}">
-            
+
         </Button>
 
     </Grid>
