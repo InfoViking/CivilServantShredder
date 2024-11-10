@@ -77,7 +77,7 @@ public class UserController(ShredderDatabase database) : ControllerBase
         return NoContent();
     }
 
-    public async Task<bool> CheckCommunity(Guid id)
+    private async Task<bool> CheckCommunity(Guid id)
     {
         var community = await database.Communities.SingleOrDefaultAsync(x => x.Id == id);
         if (community == null)

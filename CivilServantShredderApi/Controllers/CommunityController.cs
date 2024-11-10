@@ -17,7 +17,7 @@ public class CommunityController(ShredderDatabase database) : ControllerBase
 
         return Ok(result);
     }
-    // http://localhost:8888/Community/jdffdgjdafngkj
+
     [HttpGet("{id}")]
     public async Task<ActionResult<Community>> GetbyId(Guid id)
     {
