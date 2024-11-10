@@ -115,4 +115,15 @@ public class Tests
         pollPosts = api.GetAsync<BP_Poll>(cts.Token).Result.ToList();
         Assert.That(pollPosts.Any(p => p.Equals(pollPost)), Is.False);
     }
+
+    [Test]
+    public void GetByCommunityTest()
+    {
+        CancellationTokenSource cts = new(TimeSpan.FromSeconds(30));
+        var api = new Api();
+        var a = api.GetByCommunityAsync<BP_TextOnly>(Guid.Parse("761b8d06-b8dc-4ff4-9779-912792531219"), cts.Token)
+            .Result.ToArray();
+        Assert.That(a, Is.Not.Null);
+        Assert.That(a, Is.Not.Empty);
+    }
 }

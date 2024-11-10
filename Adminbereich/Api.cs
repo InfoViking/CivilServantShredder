@@ -51,7 +51,8 @@ public class Api
     public async Task<IEnumerable<T>> GetByCommunityAsync<T>(Guid id, CancellationToken cancellationToken) where T : class
     {
         using var client = GetHttpClient();
-        var result = await client.GetAsync(GetUrlEndpoint(typeof(T)) + $"/community/{id}", cancellationToken).ConfigureAwait(false);
+        var result = await client.GetAsync(GetUrlEndpoint(typeof(T)) + $"/byCommunity/{id}", cancellationToken).ConfigureAwait(false);
+        var body = await result.Content.ReadAsStringAsync(cancellationToken);
         result.EnsureSuccessStatusCode();
         var obj = await result.Content.ReadFromJsonAsync(typeof(T[]), cancellationToken).ConfigureAwait(false);
         return obj as T[] ?? [];
