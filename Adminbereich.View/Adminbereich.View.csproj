@@ -24,6 +24,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\New_BlogPost_Poll.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
