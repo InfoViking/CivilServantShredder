@@ -1,4 +1,6 @@
-﻿namespace CivilServantShredder
+﻿using Plugin.NFC;
+
+namespace CivilServantShredder
 {
     public partial class MainPage : ContentPage
     {
@@ -7,6 +9,17 @@
         public MainPage()
         {
             InitializeComponent();
+            if (!CrossNFC.Current.IsAvailable) throw new Exception("NFC not available");
+            if (!CrossNFC.Current.IsEnabled) throw new Exception("NFC not enabled");
+
+            CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
+        }
+
+        private async void CurrentOnOnMessageReceived(ITagInfo taginfo)
+        {
+            await Shell.Current.GoToAsync(nameof(Feed), true);
+            CrossNFC.Current.StopListening();
+
         }
 
         public void ChangePasswordVisibility()
@@ -30,6 +43,10 @@
         {
             await Shell.Current.GoToAsync(nameof(Feed), true);
         }
-    }
 
+        private void BtnNfc_OnClicked(object? sender, EventArgs e)
+        {
+            CrossNFC.Current.StartListening();
+        }
+    }
 }
