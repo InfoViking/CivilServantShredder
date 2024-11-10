@@ -9,24 +9,27 @@
 
              Title="Feed">
 
-    <VerticalStackLayout>
+    <Grid RowDefinitions="auto,*,auto,auto">
         <Label 
+            Grid.Row="0"
             Text="Was gibt es neues?"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <CollectionView
+            Grid.Row="1"
+            VerticalOptions="FillAndExpand"
             ItemsSource="{Binding BP_TextOnlys, Mode=TwoWay}"
             SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:BP_TextOnlyModel">
                     <Grid Padding="5" HeightRequest="120">
 
-                        <Grid Padding="0" ColumnDefinitions="auto,*">
+                        <Grid Padding="1">
                             <Frame 
                                 Grid.Column="1"
                                 Style="{StaticResource CardView}">
-                                <Grid Padding="0" RowDefinitions="auto,*">
+                                <Grid Padding="0" RowDefinitions="auto,auto,*">
                                     <Label Text="{Binding HeadLine, Mode=TwoWay}" 
                                                Grid.Row="0"
                                                FontSize="16" 
@@ -34,8 +37,10 @@
                                                HorizontalTextAlignment="Center"
                                                VerticalTextAlignment="Center"/>
 
+                                    <BoxView Grid.Row="1" BackgroundColor="#9880e5"  HeightRequest="3"/>
+
                                     <Label Text="{Binding Text, Mode=TwoWay}" 
-                                                Grid.Row="1"
+                                                Grid.Row="2"
                                                 FontSize="16" 
                                                 Margin="5"
                                                 HorizontalTextAlignment="Start"
@@ -51,10 +56,20 @@
 
 
         <Button 
+            Grid.Row="2"
                 Text="Create Post" 
-                    FontAttributes="Bold"
-                    MaximumWidthRequest="150"
-                    Clicked="Create_Post_Clicked"/>
+                FontAttributes="Bold"
+                Margin="5"
+                Clicked="Create_Post_Clicked"/>
 
-    </VerticalStackLayout>
+        <Button
+            Grid.Row="4"
+            Text="Refresh" 
+            FontAttributes="Bold"
+            Margin="5"
+            Command="{Binding GetBP_TextOnlyAsyncCommand}">
+            
+        </Button>
+
+    </Grid>
 </ContentPage>
