@@ -48,6 +48,15 @@ public class Api
         return obj as T ?? throw new ArgumentOutOfRangeException(nameof(id), id, "Kein Objekt mit angegebener ID gefunden");
     }
 
+    public async Task<IEnumerable<T>> GetByCommunityAsync<T>(Guid id, CancellationToken cancellationToken) where T : class
+    {
+        using var client = GetHttpClient();
+        var result = await client.GetAsync(GetUrlEndpoint(typeof(T)) + $"/community/{id}", cancellationToken).ConfigureAwait(false);
+        result.EnsureSuccessStatusCode();
+        var obj = await result.Content.ReadFromJsonAsync(typeof(T[]), cancellationToken).ConfigureAwait(false);
+        return obj as T[] ?? [];
+    }
+
     public async Task PostAsync<T>(T obj, CancellationToken cancellationToken)
     {
         using var client = GetHttpClient();

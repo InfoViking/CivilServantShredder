@@ -2,19 +2,66 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CivilServantShredder.Feed"
+             xmlns:model="clr-namespace:CivilServantShredder.Models"
+             xmlns:viewmodel="clr-namespace:CivilServantShredder.ViewModel"
+             x:DataType="viewmodel:FeedViewModel"
+
              Title="Feed">
-    <VerticalStackLayout>
+
+
+    <Grid ColumnDefinitions="auto,*,*">
+
         <Label 
+            Grid.Row="0"
             Text="Was gibt es neues?"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding BP_TextOnlys}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:BP_TextOnlyModel">
+                    <Grid Padding="5" HeightRequest="120">
+
+                        <Grid Padding="0" ColumnDefinitions="auto,*">
+                            <Frame 
+                                Grid.Column="1"
+                                Style="{StaticResource CardView}">
+                                <Grid Padding="0" RowDefinitions="*,auto,auto" ColumnDefinitions="*,auto,auto, auto">
+                                    <Label Text="{Binding HeadLine}" 
+                                               Grid.ColumnSpan="4" 
+                                               Grid.Row="0"
+                                               FontSize="16" 
+                                               Margin="5"
+                                               HorizontalTextAlignment="Start"
+                                               VerticalTextAlignment="Start"/>
+
+                                    <Label Text="{Binding Text}" 
+                                                Grid.Column="0"
+                                                Grid.Row="2"
+                                                FontSize="16" 
+                                                Margin="5"
+                                                HorizontalTextAlignment="Start"
+                                                VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
         <!--Settings Leiste-->
         <Grid>
-            <Button Text="Create Post" 
+            <Button 
+                Grid.Row="2"
+                Text="Create Post" 
                     FontAttributes="Bold"
                     MaximumWidthRequest="150"
                     Clicked="Create_Post_Clicked"/>
         </Grid>
-    </VerticalStackLayout>
+     </Grid>
 </ContentPage>

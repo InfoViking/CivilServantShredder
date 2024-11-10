@@ -68,6 +68,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
+	  <ProjectReference Include="..\Userbereich\Userbereich.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
