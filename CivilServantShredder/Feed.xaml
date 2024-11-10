@@ -8,5 +8,13 @@
             Text="Was gibt es neues?"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        
+        <!--Settings Leiste-->
+        <Grid>
+            <Button Text="Create Post" 
+                    FontAttributes="Bold"
+                    MaximumWidthRequest="150"
+                    Clicked="Create_Post_Clicked"/>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

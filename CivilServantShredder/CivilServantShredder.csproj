@@ -63,6 +63,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Adminbereich.View\Adminbereich.View.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\Adminbereich\Adminbereich.csproj" />
 	</ItemGroup>
 
