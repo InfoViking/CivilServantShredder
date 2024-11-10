@@ -9,8 +9,7 @@ namespace CivilServantShredder
         public MainPage()
         {
             InitializeComponent();
-            if (!CrossNFC.Current.IsAvailable) throw new Exception("NFC not available");
-            if (!CrossNFC.Current.IsEnabled) throw new Exception("NFC not enabled");
+
 
             CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
         }
@@ -46,6 +45,8 @@ namespace CivilServantShredder
 
         private void BtnNfc_OnClicked(object? sender, EventArgs e)
         {
+            if (!CrossNFC.Current.IsAvailable) return;
+            if (!CrossNFC.Current.IsEnabled) return;
             CrossNFC.Current.StartListening();
         }
     }
