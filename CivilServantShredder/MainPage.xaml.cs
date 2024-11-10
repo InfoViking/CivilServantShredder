@@ -1,4 +1,4 @@
-﻿using Plugin.NFC;
+using Plugin.NFC;
 
 namespace CivilServantShredder
 {
@@ -9,8 +9,6 @@ namespace CivilServantShredder
         public MainPage()
         {
             InitializeComponent();
-
-
             CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
         }
 
@@ -18,8 +16,9 @@ namespace CivilServantShredder
         {
             await Shell.Current.GoToAsync(nameof(Feed), true);
             CrossNFC.Current.StopListening();
-
         }
+
+        
 
         public void ChangePasswordVisibility()
         {
