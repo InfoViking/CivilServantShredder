@@ -22,14 +22,14 @@
         <HorizontalStackLayout Margin="0, 20, 0, 0" HorizontalOptions="Center">
 
 
-            <Button Text="Cancle"
+            <Button Text="Cancel"
                     Margin="0, 20, 10, 0"
                     MinimumWidthRequest="200"
-                    Clicked="Button_Cancle_Clicked"
+                    Clicked="Button_Cancel_Clicked"
                     Background="coral"
                     />
-            
-            <Button Text="Post" 
+
+            <Button Text="Post"
                     Margin="0, 20, 0, 0"
                     MinimumWidthRequest="200"
                     Clicked="Button_Post_Clicked"/>

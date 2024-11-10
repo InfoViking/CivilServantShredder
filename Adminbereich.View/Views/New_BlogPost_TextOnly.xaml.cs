@@ -56,7 +56,7 @@ public partial class New_BlogPost_TextOnly : ContentPage
         finally { await Navigation.PopAsync(); }
     }
 
-    private async void Button_Cancle_Clicked(object sender, EventArgs e)
+    private async void Button_Cancel_Clicked(object sender, EventArgs e)
     {
         await close();
     }

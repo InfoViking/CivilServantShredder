@@ -22,7 +22,7 @@ public partial class New_BlogPost_Selection : ContentPage
         await Shell.Current.GoToAsync(nameof(New_BlogPost_Poll), true);
     }
 
-    private async void Button_Cancle_Clicked(object sender, EventArgs e)
+    private async void Button_Cancel_Clicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
     }

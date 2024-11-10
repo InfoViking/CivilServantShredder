@@ -19,7 +19,7 @@
                MinimumHeightRequest="200"/>
         </Grid>
 
-        
+
         <!--Selections-->
         <Grid>
             <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
                 <Button Text="Add"
                         Margin="10, 0, 0, 0"
                         Clicked="Button_AddPollSelection_Clicked"/>
-                
+
             <Button Text="Clear all"
                     Grid.Row="3"
                     Margin="5, 0, 0, 0"
@@ -54,20 +54,20 @@
                     Clicked="Button_Clear_All_Clicked"/>
             </HorizontalStackLayout>
         </Grid>
-        
-        
-        
+
+
+
         <HorizontalStackLayout Margin="0, 20, 0, 0" HorizontalOptions="Center">
 
 
-            <Button Text="Cancle"
+            <Button Text="Cancel"
                 Margin="0, 20, 10, 0"
                 MinimumWidthRequest="100"
-                Clicked="Button_Cancle_Clicked"
+                Clicked="Button_Cancel_Clicked"
                 Background="coral"
                 />
 
-            <Button Text="Post" 
+            <Button Text="Post"
                 Margin="0, 20, 0, 0"
                 MinimumWidthRequest="100"
                 Clicked="Button_Post_Clicked"/>
