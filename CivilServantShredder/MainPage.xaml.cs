@@ -13,23 +13,13 @@ namespace CivilServantShredder
             if (!CrossNFC.Current.IsEnabled) throw new Exception("NFC not enabled");
 
             CrossNFC.Current.OnMessageReceived += CurrentOnOnMessageReceived;
-            CrossNFC.Current.OnTagDiscovered += CurrentOnOnTagDiscovered;
-            CrossNFC.Current.OnNfcStatusChanged += Current_OnNfcStatusChanged;
-        }
-
-        private void Current_OnNfcStatusChanged(bool isenabled)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CurrentOnOnTagDiscovered(ITagInfo taginfo, bool format)
-        {
-            throw new NotImplementedException();
         }
 
         private async void CurrentOnOnMessageReceived(ITagInfo taginfo)
         {
             await Shell.Current.GoToAsync(nameof(Feed), true);
+            CrossNFC.Current.StopListening();
+
         }
 
         public void ChangePasswordVisibility()
@@ -59,5 +49,4 @@ namespace CivilServantShredder
             CrossNFC.Current.StartListening();
         }
     }
-
 }
